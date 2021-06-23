@@ -7,7 +7,27 @@
 
 ## 목차
 
+---
+
 ## OS
+
+---
+
++ [DMA] (./OS/DMA.md)
++ [Interrupt] (./OS/Interrupt.md)
++ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## DataBase
 
