@@ -6,13 +6,15 @@
 
 + 예를 들어, A라는 프로그램이 CPU를 할당받아 명령을 수행하고 있는데, Interrupt가 발생하면 A는 현재 수행 중인 프로세스의 정보를 PCB에 저장해 놓고 Interrupt를 처리한 후, 다시 돌아와 A의 작업을 다시 실행한다.
 
-+ Interrupt를 하는 이유는, I/O Operation이 CPU 수행 속도보다 현저히 느리기 때문에,  중요한 자원인 CPU가 I/O Operation이 종료될 동안 다른 작업을 수행하지 못하고, 종료될 때 까지 기다린다면, 시스템적으로 굉장히 큰 손해이며, 자원 낭비이기 때문이다. 
++ Interrupt를 발생시키는 이유는, I/O Operation이 CPU 수행 속도보다 현저히 느리기 때문에,  중요한 자원인 CPU가 I/O Operation이 종료될 동안 다른 작업을 수행하지 못하고, 종료될 때 까지 기다린다면, 시스템적으로 굉장히 큰 손해이며, 자원 낭비이기 때문이다. 
 
    
+  
+  
 
 #### Interrupt의 종류
 
-__hardware interrupt__ 
+###### hardware interrupt
 
 + CPU가 아닌, 하드웨어 장치의 컨트롤러가 CPU의 서비스를 요청하거나 어떤 사실을 알려주기 위해 발생시키는 인터럽트이다. 
 
@@ -25,6 +27,8 @@ __hardware interrupt__
 - Timer Interrupt
 
   os가 각 프로그램들이 공평간 시간 동안 CPU를 할당 받을 수 있도록 interrupt를 걸어주는 것. 각 프로그램이 세팅된 시간 동안 CPU를 사용하고, 사용이 끝나면 Timer가 expire 되었다고 interrupt 걸어준다. 따라서, 주기적으로 os가 수행된다. 보통 10ms마다 interrupt를 걸어준다(10ms마다 os가 실행된다).
+  
+  
 
 __software interrupt__
 
@@ -33,6 +37,8 @@ __software interrupt__
   프로그램이 허용되지 않은 연산을 수행하려고 할 때, 자동적으로 발생하는 interrupt이다.  예를 들어 0으로 나누기, 권한 없는 메모리 참조(page fault) 등의 상황에서 발생한다. 
 + System call
   프로세스가 os의 서비스를 요청하기 위해 커널의 함수를 호출하는 경우 발생하는 interrupt
+
+
 
 
 
@@ -97,6 +103,7 @@ __software interrupt__
 + [adam2님의 블로그](https://velog.io/@adam2/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8)
 
 + [양햄찌가 만드는 세상](https://jhnyang.tistory.com/167)
+
 + [Easy is perfect](http://melonicedlatte.com/computerarchitecture/2019/02/12/213856.html)
 
 + [탕구리's 블로그](https://real-dongsoo7.tistory.com/m/93?category=784608)
