@@ -2,7 +2,7 @@
 
 
 
-#### system call이란
+## system call이란
 
 + Mechanism used by an application  program to ___request service from the Operating system___
 + 응용 프로그램이 os에게 서비스를 요청할 수 있는 유일한 방법
@@ -14,7 +14,11 @@
 
 
 
-####  system call 과정
+
+
+
+
+## system call 과정
 
 1. 프로세스가 system call 호출
 2. Trap이 발생하여 kernel mode 진입 -> 이때 현재 상태 저장
@@ -23,9 +27,7 @@
 
 
 
-
-
-#### kernel mode VS user mode
+## kernel mode VS user mode
 
 <img src = "https://user-images.githubusercontent.com/31370590/123226402-98845580-d50e-11eb-9712-878d64a09ffc.PNG" width = "600"  height = "370" >
 
@@ -39,13 +41,11 @@
 
 
 
-
-
-#### Linux system call example
+## Linux system call example
 
 <img src = "https://user-images.githubusercontent.com/31370590/123280456-be781d00-d543-11eb-98cd-3395e51b0c1c.PNG" width = "600" height = "400">
 
 + user program에서 fork() API를 호출 
 + fork() 함수가 정의되어 있는 library인 lib.c에서 __system call number인 2를 eax에 전달__, IDT(Interrupt Description Table)을 look up해서 0x80의 system call 호출
-+ system call을 호출하기 전, _SAVE_ALL_을 통해 register 값들을 stack에 저장
-+ __sys_call_table을  look up __해서 system call number 2에 해당하는 sys_fork() 시스템 콜 호출
++ system call을 호출하기 전, _SAVE_ALL_ 을 통해 register 값들을 stack에 저장
++ __sys_call_table을  look up__해서 system call number 2에 해당하는 sys_fork() 시스템 콜 호출
