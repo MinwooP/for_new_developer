@@ -30,8 +30,7 @@
 
 <img src = "https://user-images.githubusercontent.com/31370590/123648766-3015db00-d864-11eb-8a8c-5611dfa4c856.PNG" align = "left">
 
-
-
+___
 
 + program이 memory로 올라가서, memory를 차지하고 있는 상태에서 실행이 되어야 한다.
 + memory address에 저장된 process의 형태이다. 
