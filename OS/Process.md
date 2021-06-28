@@ -30,15 +30,21 @@
 
 <img src = "https://user-images.githubusercontent.com/31370590/123648766-3015db00-d864-11eb-8a8c-5611dfa4c856.PNG" align = "left">
 
+
+
+
 + program이 memory로 올라가서, memory를 차지하고 있는 상태에서 실행이 되어야 한다.
 + memory address에 저장된 process의 형태이다. 
 + data segment & text segment
+  
   + 실행 파일안의 내용이 이 부분에 들어간다. 우리가 작성한 코드가 컴파일되면 exe 파일이 기계어 코드로 생성되고, 이 실행파일을 누르면 기계어 코드가 이 부분에 올라간다. 
   + text segment(code segment)에는 code data가 들어간다
   + data segment(static data)에는 전역 변수 또는 static 변수가 들어간다. 
 + 프로그램을 실행하면 실행 파일에 있는 내용을 가지고 code segment와 static data 부분을 채우고, heap과 stack 부분들은 프로그램을 실행하면서 생겼다 없어졌다 하면서 메모리를 사용하는 것   
+  
   + heap은 동적 할당에 의해 생기는 공간
   + stack
+    
     + push, pop 연산을 통해 관리
     + 함수 호출 시, stack에 매개변수로 데이터가 push 됨
     + 함수 호출 후, 다시 돌아가기 위한 return address도 stack을 통해 관리
@@ -62,6 +68,8 @@
 
 
 #### state diagram<img src = "https://user-images.githubusercontent.com/31370590/123633467-3734ed00-d854-11eb-9eb7-30170b69124a.PNG" width = "600" height = "300">
+
+
 
 + ready state VS waiting state
   + ready state란 running state가 될 준비를 마친 상태 
@@ -96,16 +104,18 @@
 
   1. 내가 수행하던 process가 어디까지 수행됐는지 (PC)
   2. Stack pointer의 위치가 어디인지 
+     
 
-  > ###### _context switching_ 
-  >
+  > #### context switching
+
   > CPU가 이전의 process state를 PCB에 저장하고, 또 다른 process state를 PCB에서 읽어 레지스터에 적재하는 과정
 
 + __overhead__ in context switching
+  
   context switching 하는 동안, 시스템이 아무런 유용한 일을 하지 못하기 때문에, 이는 순수한 overhead이다. process가 실행되는 동안, I/O event가 발생해서, disk에서 처리해줘야 한다면, disk에서의 I/O operation이 끝날 때 까지 기다려야 하는데, context switching을 통해 다른 process에게 CPU의 할당을 넘겨주지 않으면 그 시간 동안 CPU가 낭비되는 것이므로, 
   조금 수고스럽지만 다른 process로 바꾸면서까지 CPU를 더 써먹는게 더 이득이라는 것이다. 
   약간의 overhead를 치르면서도 기존 프로세스를 새 프로세스로 바꾸는 것이 더 낫다. 
-
+  
   
 
 > ___scheduling___ : ready state인 process들 중 수행될 하나를 고르는 것
