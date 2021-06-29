@@ -30,31 +30,9 @@
 
   
 
-<img src = "https://user-images.githubusercontent.com/31370590/123648766-3015db00-d864-11eb-8a8c-5611dfa4c856.PNG" align = "left">  
+<img src = "https://user-images.githubusercontent.com/31370590/123648766-3015db00-d864-11eb-8a8c-5611dfa4c856.PNG">  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
-
+  
 
 ___
 
