@@ -28,7 +28,9 @@
 
 ## Process address space
 
-<img src = "https://user-images.githubusercontent.com/31370590/123648766-3015db00-d864-11eb-8a8c-5611dfa4c856.PNG" align = "left">    
+  
+
+<img src = "https://user-images.githubusercontent.com/31370590/123648766-3015db00-d864-11eb-8a8c-5611dfa4c856.PNG" align = "left">  
 
 
 
@@ -47,6 +49,10 @@
 
 
 
+
+
+
+   
 
 
 
@@ -82,17 +88,20 @@ ___
 
 + __ready__ : CPU의 할당을 받으려고 기다리는 상태
   다른 프로세스에 밀려서 비자발적으로 밀려남
-+ __terminated__
-
-
-
-#### state diagram<img src = "https://user-images.githubusercontent.com/31370590/123633467-3734ed00-d854-11eb-9eb7-30170b69124a.PNG" width = "600" height = "300">   
++ __terminated __   
 
 
 
 
+
+#### state diagram    
+
+#### <img src = "https://user-images.githubusercontent.com/31370590/123633467-3734ed00-d854-11eb-9eb7-30170b69124a.PNG" width = "600" height = "300">     
+
+####    
 
 + ready state VS waiting state
+  
   + ready state란 running state가 될 준비를 마친 상태 
   + 그런데 수행이 안 될까? 다른 process가 실행 중이므로 
   + 즉, 오로지 다른 process가 실행 중이기 때문에 기다리는 것 뿐이지 실행 될 준비를 다 마친 상태
@@ -126,7 +135,10 @@ ___
 + 이때 PCB에 CPU에서 실행되던 레지스터들의 값이 저장된다. 
 
   1. 내가 수행하던 process가 어디까지 수행됐는지 (PC)
+  
   2. Stack pointer의 위치가 어디인지 
+  
+     
   
   > #### context switching
   
@@ -136,16 +148,9 @@ ___
   
   context switching 하는 동안, 시스템이 아무런 유용한 일을 하지 못하기 때문에, 이는 순수한 overhead이다. process가 실행되는 동안, I/O event가 발생해서, disk에서 처리해줘야 한다면, disk에서의 I/O operation이 끝날 때 까지 기다려야 하는데, context switching을 통해 다른 process에게 CPU의 할당을 넘겨주지 않으면 그 시간 동안 CPU가 낭비되는 것이므로, 
   조금 수고스럽지만 다른 process로 바꾸면서까지 CPU를 더 써먹는게 더 이득이라는 것이다. 
-  약간의 overhead를 치르면서도 기존 프로세스를 새 프로세스로 바꾸는 것이 더 낫다. 
+  약간의 overhead를 치르면서도 기존 프로세스를 새 프로세스로 바꾸는 것이 더 낫다.   
   
   
-
-> ___scheduling___ : ready state인 process들 중 수행될 하나를 고르는 것
->
-> 1. scheduling : 여러 process 중 하나를 선택
-> 2. dispatch : 선택된 process를 CPU에 올려놓는 것
-
-
 
 
 
@@ -173,20 +178,41 @@ ___
 
   <img src = "https://user-images.githubusercontent.com/31370590/123723136-bfeb7180-d8c4-11eb-84d5-29154b548801.PNG" width = "450" height = "400" align = "center">     
 
-  
+  ---
 
   + 처음에 __fork()__ 함수를 호출해  자식 프로세스를 생성한다. 이 때, 부모의 프로세스를 복제하게 되는데, 이는 프로세스의 문맥(context)를 전부 복사하는 것이다. 부모 프로세스의 주소 공간 code, data, stack 영역을 그대로 복하사며 프로세스의 CPU 문맥 (program counter)를 복사하는 것이다.
+  
+    
+  
   + pid  = fork(); 라는 부분에서 자식 프로세스가 생성된다. 이를 쉽게 생각하면 위의 코드가 그대로 하나 복사되어 동시에 실행되는 것이다. 물론 main() 의 처음부터 다시 실행되는 것은 아니다. 왜냐하면 프로세스의 복사가 일어나면 부모 프로세스의 '문맥'을 복사하면서 CPU의 문맥인 PC값도 복사가 되기 때문이다. 이 때, PC는 pid = fork(); 라는 코드 영역을 가리키고 있었으므로 그다음 코드 부분을 실행하게 되는 것이다. 
+  
+    
+  
   + fork() 함수는 __Call once, Return twice__
     부모 프로세스에 의해 1번 호출되고, 부모, 자식 프로세스에 의해 총 2번 반환된다.
     return 값에 따라 부모, 자식 프로세스를 구분해 서로 다른 프로세스들의 제어흐름을 서로 다르게 설정할 수 있게 된다.
     + 부모 프로세스 : child의 PID return
     + 자식 프로세스 : 0 return
+    
+    
+    
   + 부모의 address space를 복제하지만 별개의 address space이다. 부모 프로세스와 자식 프로세스는 별도의 process 이므로 자기만의 address space를 가진다. PID도 서로 다르다.
+  
+  
+  
   + 자식 프로세스는 어찌 되었든 부모 프로세스의 모든 것을 복사한 것이기 때문에 복사된 직후에는 비슷한, 혹은 완전히 같은 흐름을 갖게 될 수밖에 없다. 이 때 __exec()__ 함수를 통해 다른 프로그램을 실행하게 되면 부모 프로세스와 같은 제어 흐름에서 벗어나게 되며, 아예 새로운 프로세스로 탈바꿈하게 된다.
+  
+  
+  
   + 자식 프로세스가 __exec()__ 함수를 호출해 새로운 프로그램을 overwrite 한다. address space 중 text 부분이 새로운 프로그램에 의해 overwrite 됨에 따라 stack, heap, data 부분이 초기화된다. 
+  
+  
+  
   + fork() 함수의 호출로 인해 PID는 다르지만 부모 프로세스와 같은 제어 흐름을 갖는 프로세스를 하나 더 생성, exec() 함수의 호출로 인해 생성되는 새로운 프로세스는 없고, exec()를 호출한 프로세스의 PID가 그대로 새로운 프로세스에 적용이 되며, exec()를 호출한 프로세스는 새로운 프로세스에 의해 overwrite 된다.  
-  + 부모 프로세스는 __wait()__ 함수를 호출해 자식 프로세스가 끝날때까지 기다린다. 즉 부모 프로세스를 blocked state(waiting state)로 보낸다. 자식 프로세스가 종료되면 다시 ready state가 되고 scheduler에 의해 dispatch 되어 running state가 된다. 
+  
+  
+  
+  + 부모 프로세스는 __wait()__ 함수를 호출해 자식 프로세스가 끝날때까지 기다린다. 즉 부모 프로세스를 blocked state(waiting state)로 보낸다. 자식 프로세스가 종료되면 다시 ready state가 되고 scheduler에 의해 dispatch 되어 running state가 된다.   
 
 ​           
 
@@ -242,7 +268,7 @@ ___
 
 
 
-###### 참고
+#### 참고
 
 + [양햄찌가 만드는 세상](https://jhnyang.tistory.com/notice/31)
 + [gunnew의 컴퓨터 모험기](https://higunnew.tistory.com/25)
