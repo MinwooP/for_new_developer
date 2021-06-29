@@ -7,7 +7,7 @@
 + a program in execution
 + program은 실행 파일로, 파일 시스템으로 존재하지만 process는 실행되고 있는 주체
 + 실행중인 program의 하나의 instance 
-+ program이 실행되면 그 프로세스의 process address space가 memory에 할당된다. 
++ program이 실행되면 그 프로세스의 process address space가 memory에 할당된다.     
 
 
 
@@ -20,7 +20,7 @@
   process number - PID?
   program counter - next instruction
   CPU registers 
-+ PCB는 프로세스 생성 시 만들어지며 주기억장치에 유지된다. 
++ PCB는 프로세스 생성 시 만들어지며 주기억장치에 유지된다.      
 
 
 
@@ -28,7 +28,27 @@
 
 ## Process address space
 
-<img src = "https://user-images.githubusercontent.com/31370590/123648766-3015db00-d864-11eb-8a8c-5611dfa4c856.PNG" align = "left">
+<img src = "https://user-images.githubusercontent.com/31370590/123648766-3015db00-d864-11eb-8a8c-5611dfa4c856.PNG" align = "left">    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ___
 
@@ -48,7 +68,7 @@ ___
     + 함수 호출 시, stack에 매개변수로 데이터가 push 됨
     + 함수 호출 후, 다시 돌아가기 위한 return address도 stack을 통해 관리
     + 지역변수 관리
-    + 컴파일 타임에 stack의 크기 결정됨
+    + 컴파일 타임에 stack의 크기 결정됨      
 
 
 
@@ -66,7 +86,9 @@ ___
 
 
 
-#### state diagram<img src = "https://user-images.githubusercontent.com/31370590/123633467-3734ed00-d854-11eb-9eb7-30170b69124a.PNG" width = "600" height = "300">
+#### state diagram<img src = "https://user-images.githubusercontent.com/31370590/123633467-3734ed00-d854-11eb-9eb7-30170b69124a.PNG" width = "600" height = "300">   
+
+
 
 
 
@@ -91,7 +113,9 @@ ___
 
 ## context switching & PCB
 
-<img src = "https://user-images.githubusercontent.com/31370590/123646847-8d109180-d862-11eb-96d5-c638c55e8fde.PNG" width = "600" height = "400">
+<img src = "https://user-images.githubusercontent.com/31370590/123646847-8d109180-d862-11eb-96d5-c638c55e8fde.PNG" width = "600" height = "400">              
+
+
 
 + PC, Stack pointer 등의 레지스터들은 CPU내에 존재한다. 따라서, 현재 수행중인(running state) 프로세스 정보는 CPU 내부, 즉 레지스터에서 저장하고 있습니다. 따라서 __현재 실행중인 프로세스까지는 정보를 담는 레지스터가 있으니 PCB라는 저장공간이 따로 필요하지 않다.__
 
@@ -103,12 +127,11 @@ ___
 
   1. 내가 수행하던 process가 어디까지 수행됐는지 (PC)
   2. Stack pointer의 위치가 어디인지 
-     
-
+  
   > #### context switching
-
+  
   > CPU가 이전의 process state를 PCB에 저장하고, 또 다른 process state를 PCB에서 읽어 레지스터에 적재하는 과정
-
+  
 + __overhead__ in context switching
   
   context switching 하는 동안, 시스템이 아무런 유용한 일을 하지 못하기 때문에, 이는 순수한 overhead이다. process가 실행되는 동안, I/O event가 발생해서, disk에서 처리해줘야 한다면, disk에서의 I/O operation이 끝날 때 까지 기다려야 하는데, context switching을 통해 다른 process에게 CPU의 할당을 넘겨주지 않으면 그 시간 동안 CPU가 낭비되는 것이므로, 
@@ -128,13 +151,90 @@ ___
 
 ## operations on process 
 
++ issues
+
+  + resource sharing options
+
+    자식 프로세스와 resource의 일부만 공유한다.
+
+  + Execution options
+
+    부모와 자식 프로세스가 동시에 실행되거나 부모가 자식 프로세스가 끝날때까지 기다린다.
+
+  + Address space
+
+    자식 프로세스가 부모의 address space를 복제한다.
+
+    자식 프로세스가 프로그램을 로드한다. 
+
+    
+
++ process creation
+
+  <img src = "https://user-images.githubusercontent.com/31370590/123723136-bfeb7180-d8c4-11eb-84d5-29154b548801.PNG" width = "450" height = "400" align = "center">     
+
+  
+
+  + 처음에 __fork()__ 함수를 호출해  자식 프로세스를 생성한다. 이 때, 부모의 프로세스를 복제하게 되는데, 이는 프로세스의 문맥(context)를 전부 복사하는 것이다. 부모 프로세스의 주소 공간 code, data, stack 영역을 그대로 복하사며 프로세스의 CPU 문맥 (program counter)를 복사하는 것이다.
+  + pid  = fork(); 라는 부분에서 자식 프로세스가 생성된다. 이를 쉽게 생각하면 위의 코드가 그대로 하나 복사되어 동시에 실행되는 것이다. 물론 main() 의 처음부터 다시 실행되는 것은 아니다. 왜냐하면 프로세스의 복사가 일어나면 부모 프로세스의 '문맥'을 복사하면서 CPU의 문맥인 PC값도 복사가 되기 때문이다. 이 때, PC는 pid = fork(); 라는 코드 영역을 가리키고 있었으므로 그다음 코드 부분을 실행하게 되는 것이다. 
+  + fork() 함수는 __Call once, Return twice__
+    부모 프로세스에 의해 1번 호출되고, 부모, 자식 프로세스에 의해 총 2번 반환된다.
+    return 값에 따라 부모, 자식 프로세스를 구분해 서로 다른 프로세스들의 제어흐름을 서로 다르게 설정할 수 있게 된다.
+    + 부모 프로세스 : child의 PID return
+    + 자식 프로세스 : 0 return
+  + 부모의 address space를 복제하지만 별개의 address space이다. 부모 프로세스와 자식 프로세스는 별도의 process 이므로 자기만의 address space를 가진다. PID도 서로 다르다.
+  + 자식 프로세스는 어찌 되었든 부모 프로세스의 모든 것을 복사한 것이기 때문에 복사된 직후에는 비슷한, 혹은 완전히 같은 흐름을 갖게 될 수밖에 없다. 이 때 __exec()__ 함수를 통해 다른 프로그램을 실행하게 되면 부모 프로세스와 같은 제어 흐름에서 벗어나게 되며, 아예 새로운 프로세스로 탈바꿈하게 된다.
+  + 자식 프로세스가 __exec()__ 함수를 호출해 새로운 프로그램을 overwrite 한다. address space 중 text 부분이 새로운 프로그램에 의해 overwrite 됨에 따라 stack, heap, data 부분이 초기화된다. 
+  + fork() 함수의 호출로 인해 PID는 다르지만 부모 프로세스와 같은 제어 흐름을 갖는 프로세스를 하나 더 생성, exec() 함수의 호출로 인해 생성되는 새로운 프로세스는 없고, exec()를 호출한 프로세스의 PID가 그대로 새로운 프로세스에 적용이 되며, exec()를 호출한 프로세스는 새로운 프로세스에 의해 overwrite 된다.  
+  + 부모 프로세스는 __wait()__ 함수를 호출해 자식 프로세스가 끝날때까지 기다린다. 즉 부모 프로세스를 blocked state(waiting state)로 보낸다. 자식 프로세스가 종료되면 다시 ready state가 되고 scheduler에 의해 dispatch 되어 running state가 된다. 
+
+​           
+
++ process termination
+
+  + exit() 함수의 호출을 통해 프로세스 종료
+
+  + 자발적 종료와 비자발적 종료가 있음
+
+    + 자발적  종료
+
+      프로세스의 마지막 statement에 도달해 자동으로 종료되는 것. 프로그램 중간에 exit()이 호출되어도 프로세스 자신이 직접 exit()를 호출했기 때문에 자발적 종료 
+
+    + 비자발적 종료
+
+      프로세스가 진행되는 와중에 외부에서 강제로 종료하는 것
+
+      1. 자식 프로세스가 너무 많은 자원을 요구하는 경우 또는 자식에게 시킬 일이 다 끝났을 경우 부모 프로세스가 강제 종료시킨다
+      2. 사용자가 키보드로 ctrl + c와 같은 커맨드를 입력하거나, kill, break 같은 커맨드를 입력하는 경우
+      3. 부모 프로세스가 종료되는 경우에 자식 프로세스의 흐름과 관계없이 강제적으로 자식 프로세스를 종료시킨다.     
 
 
-## inter-process communication
 
 
 
+## IPC (inter-process communication)
 
++ 왜 IPC가 어려울까? 
+
+  각 프로세스는 별도의 address space를 가지기 때문에, 다른 프로세스의 address space를 보거나, 접근하기 어려움
+
++ IPC
+
+  + shared memory
+  + message passing
+    1. direct communication
+    2. indirect communication
+
++ shared memory
+
+  + 처음 shared section을 설정할 때만, system call 필요 (OS가 해줘야 하므로), 다음부터는 system call 필요 x
+  + synchronization을 구현해줘야 함
+
++ message passing
+
+  + mail box(queue, port) 를 커널에 생성해줘야 함 
+  + 커널에 계속 접근해야 하므로 system call 필요
+  + 프로세스들 사이에 communication link(mail box)를 만들고, send, receive operation을 통해 message를 교환한다. 
 
 
 
@@ -145,4 +245,4 @@ ___
 ###### 참고
 
 + [양햄찌가 만드는 세상](https://jhnyang.tistory.com/notice/31)
-+ 
++ [gunnew의 컴퓨터 모험기](https://higunnew.tistory.com/25)
