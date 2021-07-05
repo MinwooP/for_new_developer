@@ -58,7 +58,7 @@ ___
 
 
 
-## process state
+## Process state
 
 + __new__ : the process is being created
 + __running__ : instructions are being executed
@@ -66,7 +66,7 @@ ___
 
 + __ready__ : CPU의 할당을 받으려고 기다리는 상태
   다른 프로세스에 밀려서 비자발적으로 밀려남
-+ __terminated __   
++ __terminated__    
 
 
 
@@ -98,7 +98,7 @@ ___
 
 
 
-## context switching & PCB
+## Context switching & PCB
 
 <img src = "https://user-images.githubusercontent.com/31370590/123646847-8d109180-d862-11eb-96d5-c638c55e8fde.PNG" width = "600" height = "400">              
 
@@ -132,7 +132,7 @@ ___
 
 
 
-## operations on process 
+## Operations on process 
 
 + issues
 
