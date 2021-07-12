@@ -11,17 +11,17 @@
 
 ---
 
-+ [DMA](./OS/DMA.md)
+🎖 [DMA](./OS/DMA.md)
 
-+ [Interrupt](./OS/Interrupt.md)
+🎖 [Interrupt](./OS/Interrupt.md)
 
-+ [System call](./OS/System_call.md)
+🎖 [System call](./OS/System_call.md)
 
-+ [Kernel](./OS/Kernel.md)
+🎖 [Kernel](./OS/Kernel.md)
 
-+ [Register](./OS/Register.md)
+🎖 [Register](./OS/Register.md)
 
-  
+
 
 
 
