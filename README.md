@@ -41,7 +41,7 @@
 
 ​	🎖 [버전관리](./Git/버전관리.md)
 
-​	🎖 [Branch & Conflict](./Git/Branch_and_conflict.md)
+​	🎖 [Branch & Conflict](./Git/Branch_and_Conflict.md)
 
 🥈 **backup**
 
