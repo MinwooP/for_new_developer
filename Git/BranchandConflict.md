@@ -219,9 +219,9 @@ $ git log --all --graph --oneline
 
   
 
-1. `git init` : 기본적으로 master branch가 생성이 되고, head는 master branch를 가리킴. 우리는 HEAD를 보고, 현재 저장소는 master branch에  checkout 되어있구나를 알 수 있음.  <br> 
+1. `git init` : 기본적으로 master branch가 생성이 되고, head는 master branch를 가리킴. 우리는 HEAD를 보고, 현재 저장소는 master branch에  checkout 되어있구나를 알 수 있음.   
 
-<img src = "https://user-images.githubusercontent.com/31370590/125761885-4ab4d148-eda8-4b4a-9fe2-a7ded681c8a3.PNG" width = "300" height = "400" align = "left">
+<img src = "https://user-images.githubusercontent.com/31370590/125761885-4ab4d148-eda8-4b4a-9fe2-a7ded681c8a3.PNG" width = "300" height = "400" >
 
 <br>
 
