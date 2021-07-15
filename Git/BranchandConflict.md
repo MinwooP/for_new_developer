@@ -163,5 +163,130 @@ $ git log --all --graph --oneline
      * 4be7bd1 work 1
      ```
 
-     
+
+
+
+## 🚩 3 way merge
+
++ git은 어떻게 충돌을 파악하는가
+
+  | here  | origin | there |
+  | :---: | :----: | :---: |
+  |   A   |   A    |   A   |
+  | **H** |   B    |   B   |
+  |   C   |   C    | **T** |
+  | **H** |   D    | **T** |
+
+
+
++ merge
+
+  | here | base | there |           2 way merge            |           3 way merge            |
+  | :--: | :--: | :---: | :------------------------------: | :------------------------------: |
+  |  A   |  A   |   A   |                A                 |                A                 |
+  |  H   |  B   |   B   | <span style="color:red">?</span> |                H                 |
+  |  C   |  C   |   T   | <span style="color:red">?</span> |                T                 |
+  |  H   |  D   |   T   | <span style="color:red">?</span> | <span style="color:red">?</span> |
+
+  git은 3 way merge 방식으로 merge를진행한다.
+
+
+
+## 🚩 외부 도구를 이용한 병합, 보충
+
++ `git mergetool`  : 외부 도구를 실행하여 merge를 진행
+
+  ex) p4merge
+
++ 보충
+  + git flow
+  + cherry pick
+  + rebase 
+
+
+
+## 🚩 reset vs checkout
+
++ HEAD, branch, commit 와 checkout, reset
+
++ 우리가 저장소를 만들면 master branch가 생성이 되고,  우리가 어떤 작업을 하는 것은 기본적으로 master위에서 버전을 만들어 가는 것이다. 저장소를 만들면 HEAD가 생성이 되고, 이  HEAD는 master branch를 가리키게 된다. HEAD를 통해 현재 나의 저장소는 master branch에 checkout 되어 있구나를 알 수 있음 . 
+
+
+
++ `git checkout [branch_name]` : HEAD가 branch_name의 branch를 가리키도록 변경한다. 
+
++ HEAD가 branch가 아닌 특정 commit을 가리키고 있는 것을 `detached` 상태에 있다고 말한다. 
+
+  
+
+1. `git init` : 기본적으로 master branch가 생성이 되고, head는 master branch를 가리킴. 우리는 HEAD를 보고, 현재 저장소는 master branch에  checkout 되어있구나를 알 수 있음
+
+<img src = "https://user-images.githubusercontent.com/31370590/125761885-4ab4d148-eda8-4b4a-9fe2-a7ded681c8a3.PNG" width = "300" height = "400" align = "left">
+
+
+
+2. `git commit -am "1"`  : master branch에서 버전을 생성하면, 현재 master branch가 1번 버전을 가리키게 되고, 이를 통해 우리는 현재 이 저장소가 master branch에 checkout 되있다는 것은 HEAD를 통해 알 수 있다.  그리고 현재 이 저장소가 어떤 버전 상태에 있는지를 알고 싶다면, HEAD가 가리키는 master가 가리키는 1이라는 버전을 통해 알 수 있다. 
+
+   <img src = "https://user-images.githubusercontent.com/31370590/125762155-4cd9757a-dc74-41a9-bd12-bcbd856436fa.PNG" width = "300" height = "400" align = "left">
+
+
+
+3. `git commit -am "2"` : 현재 이 저장소의 버전은 HEAD가 가리키는 master가 가리키는 2번 버전이다. 
+
+<img src = "https://user-images.githubusercontent.com/31370590/125763292-b9332fcb-3b60-48e1-a39f-26f8159b1462.PNG" width = "300" height = "400" align = "left">
+
+
+
+4. `git branch google` : 이 branch가 어떤 버전으로 시작할 것인지를 결정해야 하는데, 그때 HEAD가 가리키는 master가 가리키는 2번 버전으로 시작한다.   
+
+   <img src = "https://user-images.githubusercontent.com/31370590/125763837-9451f33e-0d7c-4c9c-b4fb-91b9ec34f6c4.PNG" width = "400" height = "400" align = "left">
+
+
+
+5. `git checkout google` : HEAD가 google을 가리키도록 변경한다. 이를 통해, HEAD를 보고, HEAD가 google 이까 현재 google branch에 checkout 되어있구나~ 이 저장소의 최신 상태는 2번 버전이구나~를 알 수 있다.
+
+   <img src = "https://user-images.githubusercontent.com/31370590/125764232-7e33b201-1eba-4343-82b6-98a1a66b0b3f.PNG" width = "450" height = "400" align = "left">
+
+
+
+6. `git commit -am "3"` : 3번이라는 버전이 생길 것이고,  이 3번 버전의 부모는 2번이고, 현재 google에 checkout 되어있는 상태로 버전을 만들었기 때문에, google 이라는 branch는 이제 3번 버전을 가리키게 됨. 이로써 master에서 시작한 google은 master와는 다른 버전을 가리키게 됨.
+
+   <img src = "https://user-images.githubusercontent.com/31370590/125764971-39a306cb-c5ba-4195-aabb-636e1a3c7fd6.PNG" width = "450" height = "400" align = "left">
+
+
+
+7. `git checkout master` : HEAD가 가리키는 것을 master로 변경하는 것이고, master가 가리키고 있는 2번 버전을 저장소의 최신상태로 만든다. 
+
+
+
+8. `git checkout [1번커밋]` : HEAD는 branch가 아닌, 1번이라는 이름의 버전을 직접 가리킴. 이 저장소는 1번 저장소의 상태가 됨. 
+
+   <img src = "https://user-images.githubusercontent.com/31370590/125765502-fc6af1af-dbf3-487c-b984-3ceb332e8e79.PNG" width = "450" height = "400" align = "left">
+
+
+
+
+
++ checkout vs reset
+
+  + checkout : 무엇인가를 바꾸는 느낌
+  + reset : 무엇인가를 지우는 느낌
+
+  => checkout은 HEAD를 제어한다. reset은 HEAD가 branch를 가리키고 있는 동안은  branch를 제어한다.
+
+   
+
+  + ` git reset master` `(HEAD=>google)인 상태` => google이라는 branch가 master가 가리키고 있는 버전을 가리키도록 바꾼다. 이제 더이상 3번 커밋은  이제 google branch 소속이 아니기 때문에, 삭제의 느낌을 받게 된다.
+
+  <img src = "https://user-images.githubusercontent.com/31370590/125767322-8b61f64f-febb-4aaa-9b8a-ca6f5051de34.PNG" width = "500" height = "400" align = "left">
+
+  
+
+  + `git reset 1` : google이라는 현재 branch는 1번 커밋을 가리키게 되면서, 2번, 3번 commit은 이제 더이상 google의 소속이 아니니까 삭제의 느낌이 나는 것.
+
+    <img src = "https://user-images.githubusercontent.com/31370590/125767588-51a096d7-4f6c-4c63-818b-418f868d5592.PNG" width = "500" height = "400" align = "left">
+
+
+
+> 우리 인생에도 branch가 있다면 얼마나 좋을까. 하지만 인생에는 버전만 있고 reset도 없고, branch는 더더욱 없다. 잃어버려야먄 그 소중함을 알게 되는 것들이 참 많다.
 
