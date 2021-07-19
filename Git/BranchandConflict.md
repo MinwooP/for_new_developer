@@ -247,11 +247,11 @@ $ git log --all --graph --oneline
 
    <img src = "https://user-images.githubusercontent.com/31370590/125764232-7e33b201-1eba-4343-82b6-98a1a66b0b3f.PNG" width = "450" height = "400">     
 
-   <br>
+<br>
 
 6. `git commit -am "3"` : 3번이라는 버전이 생길 것이고,  이 3번 버전의 부모는 2번이고, 현재 google에 checkout 되어있는 상태로 버전을 만들었기 때문에, google 이라는 branch는 이제 3번 버전을 가리키게 됨. 이로써 master에서 시작한 google은 master와는 다른 버전을 가리키게 됨. 
 
-   <img src = "https://user-images.githubusercontent.com/31370590/125764971-39a306cb-c5ba-4195-aabb-636e1a3c7fd6.PNG" width = "450" height = "400">   
+   <img src = "https://user-images.githubusercontent.com/31370590/125764971-39a306cb-c5ba-4195-aabb-636e1a3c7fd6.PNG" width = "450" height = "400">      
 
 <br>
 
