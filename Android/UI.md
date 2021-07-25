@@ -105,6 +105,7 @@
 ## App icon
 
 + 런처 아이콘 말고 **앱에서 사용하는 아이콘**
+
 + 다양한 화면 밀도에 맞는 여러 버전의 비트맵 이미지를 제공하는 대신 **벡터 드로어블**을 사용하는 것이 좋습니다. 벡터 드로어블은 이미지를 구성하는 실제 픽셀을 저장하는 대신 이미지를 만드는 방법에 관한 지침을 저장하는 XML 파일로 표현됩니다. 벡터 드로어블은 시각적 품질 손실이나 파일 크기 증가 없이 확장하거나 축소할 수 있습니다.
 
 + [Material design->resource->~](https://fonts.google.com/icons)에서 5개 테마 중 하나를 사용하여 그릴 수 있음(vector drawble 파일과 bitmap 이미지 파일 5개 다 제공)
@@ -117,12 +118,6 @@
 
   
 
-
-
-
-
-
-
  Q) 
 
 + 앱 자체의 아이콘은 `image asset`, 앱 내의 여러 아이콘은 `vector asset` ? 둘다 vector drawble? 앱 아이콘은 적응형 아이콘? 
@@ -133,6 +128,177 @@
 
 
 
+-----
+
+## Recycler View
+
+- item, Adapter, ViewHolders, RecyclerView 사이의 관계
+
++ RecyclerView 구성
+
+  + FrameLayout에 recycler view 배치
+
+  +  항목을 세로 목록으로 표시하므로 `LinearLayoutManager`를 사용
+
+    ```kotlin
+    app:layoutManager="LinearLayoutManager"
+    ```
+
+  + 화면보다 긴 항목의 세로 목록을 스크롤하려면 **세로 스크롤바** 추가 => `android:scrollbars`
+
+    ```kotlin
+    android:scrollbars="vertical"
+    ```
+
++ Adapter 구현
+  + Adapter는 데이터를 `RecyclerView`에서 사용할 수 있는 형식으로 조정한다. 
+  + 앱을 실행하면 `RecyclerView`가 어댑터를 사용하여 화면에 데이터를 표시하는 방법을 파악한다. 
+
++ ViewHolder
+
+  `RecyclerView`는 item view(RecyclerView에 표시되는 데이터 항목 하나하나)와 직접 상호작용 하지 않고, `ViewHolders`와 한다. `ViewHolder`는 `RecyclerView`의 list item layout 안의 individual views 를 나타내며 가능한 경우 재사용할 수 있다. 
+
+
+
+#### 전체적인 Recycler View 구성
+
++ `DataSource` class의 `loadAffirmations()` 함수를 통해 데이터를 가져옴
+
++ `activity_main.xml`에 `FrameLayout` 안에 `RecyclerView`
+
++ `list_item.xml`에 `TextView` 정의 => 나중에 확장되어 상위 `RecyclerView`에 하위 요소로 추가됨
+
+  ```kotlin
+  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/item_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+  ```
+
++ `ItemAdapter` class를 만들고 `RecyclerView`에 전달할 데이터 목록을 `Adapter`에 전달할 수 있도록 생성자에 매개변수를 추가(문자열 리소스를 확인하기 위해서 `Context` 유형의 매개변수도 추가)
+
++ `ItemAdapter` class 안에 `ItemViewHolder` class도 생성(`ItemAdapter`만 `ItemViewHolder`를 사용하므로)
+
+  ```kotlin
+  class ItemAdapter(private val context: Context, private val dataset: List<Affirmation>) {
+  
+      class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+          val textView: TextView = view.findViewById(R.id.item_title)
+      }
+  }
+  ```
+
++ 추상 클래스 `RecyclerView.Adapter`에서 `ItemAdapter`를 확장 =>  `RecyclerView.Adapter`에서 Adapter의 추상 메서드 override
+
+  ```kotlin
+  class ItemAdapter(
+      private val context: Context,
+      private val dataset: List<Affirmation>
+  ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
+      // ~
+  }
+  ```
+
+  + `getItemCount()` => 데이터 세트의 크기를 반환
+  + `onCreateViewHolder()` => `RecyclerView`의 ViewHolder를 만들기 위해 레이아웃 관리자가 호출합니다(재사용할 수 있는 기존 뷰 홀더가 없는 경우)
+  + `onBindViewHolder()` =>  list item view의 콘텐츠를 바꾸기 위해 레이아웃 관리자가 호출
+
++ RecyclerView를 사용하도록 MainActivity 수정
+
+  `MainActivity`에서 `Datasource` 클래스와 `ItemAdapter` 클래스를 사용하여 `RecyclerView`에 항목을 만들고 표시
+
+  `MainActivity.kt`에 `onCreate()` 함수 안에 아래 코드 추가
+
+  ```kotlin
+  val myDataset = Datasource().loadAffirmations()
+  val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+  recyclerView.adapter = ItemAdapter(this, myDataset)
+  recyclerView.setHasFixedSize(true)
+  ```
+
+=>  **Adapter**가 핵심적인 기능 ?
+
+
+
+#### `list_item`에 `textview`말고 `imageView`같은 다른 뷰도 추가하고 싶으면
+
++ `Affirmation` 데이터 클래스에서 이미지 리소스 ID의 값을 보유하는 속성을 추가
+
+  ```kotlin
+  data class Affirmation(
+     @StringRes val stringResourceId: Int,
+     @DrawableRes val imageResourceId: Int
+  )
+  ```
+
++ `Datasource` class에서도 `loadAffirmations` 함수 수정
+
+  ```kotlin
+  fun loadAffirmations(): List<Affirmation> {
+          return listOf<Affirmation>(
+              Affirmation(R.string.affirmation1, R.drawable.image1),
+              // ~
+          )
+  ```
+
++ `list_item.xml`에도 `imageview` 추가(`LinearLayout`으로 변경)
+
++ `ItemViewHolder`에도  `ImageView`에 대한 참조를 보유하도록
+
+  ```kotlin
+  class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
+      val textView: TextView = view.findViewById(R.id.item_title)
+      val imageView: ImageView = view.findViewById(R.id.item_image)
+  }
+  ```
+
++ `ItemAdapter`에서 `OnBindViewHolder()` 함수도 변경
+
+  ```kotlin
+  override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+      val item = dataset[position]
+      holder.textView.text = context.resources.getString(item.stringResourceId)
+      holder.imageView.setImageResource(item.imageResourceId)
+  }
+  ```
+
+
+
+
+
+
+-----
+
+## 인텐트
+
+
+
++ Intent란 안드로이드 4대 컴포넌트가 서로 데이터를 주고받기 위한 메시지 객체이다 .
+
+  명시적 인텐트 : 액티비티 이름을 명확하게 지정할 때 사용하는 방법
+  암시적 인텐트 : 약속된 액션을 지정하여 안드로이드에서 제공하는 기종의 응용 프로그램을 실행하는 것
+
+  + 명시적 인텐트 설정
+
+    ```kotlin
+    val intent = Intent(this, DetailActivity::class.kotlin)
+    intent.putExtra("letter", "hello bundle")
+    intent.putExtra("letter2", 2020)
+    
+    startActivity(intent)
+    ```
+
+  + `DetailActivity`에서 intent로 넘겨진 정보를 받으려면
+
+    ```kotlin
+    val letterId = intent?.extras?.getString("letter").toString()
+    
+    // val letterId = intent.getStringExtra("letter") 
+    ```
+
+    + 여기서 intent는 `DetailActivity`의 property라기 보다는, property of any Activity 이다. 해당 액티비티를 launch하는데 사용된 intent에 대한 reference를 유지한다.
+    + extras 속성은 `Bundle` 유형이고 짐작했겠지만 인텐트에 전달된 모든 extras에 액세스하는 방법을 제공합니다.
+    + 실제 문자가 `getString`으로 검색되어 `String?`를 반환하므로 `toString()`을 호출하여 `null`이 아닌 `String`인지 확인한다. 
 
 
 
@@ -140,9 +306,8 @@
 
 
 
+-----
 
+## Layout에 대해
 
-
-
-
-`EditText` 필드는 머터리얼 디자인 가이드를 따르지는 않는다. 이를 Material text field(`TextInputLayout`와 `TextInputEditText`로 구성됨)로 바꾼다. 
++ 레이아웃에 단일 하위 뷰 `RecyclerView`만 있으므로, 단일 하위 뷰를 보유하는 데 사용해야 하는 더 간단한 `ViewGroup`인 `FrameLayout`으로 전환할 수 있습니다.
