@@ -1,15 +1,13 @@
-# 💻 for_new_developer
-🚩 신입 개발자로서 필요한 기본 지식을 정리하는 공간
+# <center>💻 for_new_developer</center>
+<center>🚩 신입 개발자로서 필요한 기본 지식을 정리하는 공간</center>   
 
 
 
-## 목차
+
 
 ---
 
-## OS
-
----
+## <center>OS</center>
 
 🎖 [DMA](./OS/DMA.md)
 
@@ -19,21 +17,33 @@
 
 🎖 [Kernel](./OS/Kernel.md)
 
-🎖 [Register](./OS/Register.md)
+🎖 [Register ](./OS/Register.md)  
 
 
 
+-----
+
+## Andriod
+
+🎖 [Activity](./Andriod/Activity.md)
+
+🎖 [Class](./Andriod/Class.md)
+
+🎖 [DataType](./Andriod/DataType.md)
+
+🎖 [List](./Andriod/List.md)
+
+🎖 [Navigation Component](./Andriod/NavComponent.md)
+
+🎖 [Null](./Andriod/Null.md)
+
+🎖 [UI](./Andriod/UI.md)
+
+🎖 [View](./Andriod/View.md)   
 
 
-## DataBase
 
-## AI
-
-## 컴퓨터구조
-
-## 알고리즘
-
-
+-----
 
 ## Git
 
@@ -45,7 +55,31 @@
 
 🥈 **backup**
 
-🥉 **collaborate**
+🥉 **collaborate**   
+
+
+
+-----
+
+## DataBase   
+
+
+
+-----
+
+## AI   
+
+
+
+-----
+
+## 컴퓨터구조   
+
+
+
+-----
+
+## 알고리즘   
 
 
 
