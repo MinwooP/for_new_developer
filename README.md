@@ -1,5 +1,6 @@
-# <center>💻 for_new_developer</center>
-<center>🚩 신입 개발자로서 필요한 기본 지식을 정리하는 공간</center>   
+# <div align="center">💻 for_new_developer</div>
+
+<div align="center">🚩 신입 개발자로서 필요한 기본 지식을 정리하는 공간</div>   
 
 
 
@@ -7,7 +8,7 @@
 
 ---
 
-## <center>OS</center>
+## <div align="center">OS</div>
 
 🎖 [DMA](./OS/DMA.md)
 
@@ -23,7 +24,7 @@
 
 -----
 
-## Andriod
+## <div align="center">Andriod</div>
 
 🎖 [Activity](./Andriod/Activity.md)
 
