@@ -114,7 +114,7 @@ val name4: String  = name1!!          // 정상
 
 #### 참고
 
-출처: https://tourspace.tistory.com/114 [투덜이의 리얼 블로그]
++ [투덜이의 리얼 블로그](https://tourspace.tistory.com/114)
 
 + [gosgjung.log]( https://velog.io/@gosgjung/3%EB%B6%84-kotlin-5-%EC%BD%94%ED%8B%80%EB%A6%B0%EC%9D%98-%EC%97%AC%EB%9F%AC%EA%B0%80%EC%A7%80-null-%EC%B2%98%EB%A6%AC%EB%B0%A9%EC%8B%9D%EB%93%A4)
 

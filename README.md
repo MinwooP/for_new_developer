@@ -26,21 +26,21 @@
 
 ## <div align="center">Andriod</div>
 
-🎖 [Activity](./Andriod/Activity.md)
+🎖 [Activity](./Android/Activity.md)
 
-🎖 [Class](./Andriod/Class.md)
+🎖 [Class](./Android/Class.md)
 
-🎖 [DataType](./Andriod/DataType.md)
+🎖 [DataType](./Android/DataType.md)
 
-🎖 [List](./Andriod/List.md)
+🎖 [List](./Android/List.md)
 
-🎖 [Navigation Component](./Andriod/NavComponent.md)
+🎖 [Navigation Component](./Android/NavComponent.md)
 
-🎖 [Null](./Andriod/Null.md)
+🎖 [Null](./Android/Null.md)
 
-🎖 [UI](./Andriod/UI.md)
+🎖 [UI](./Android/UI.md)
 
-🎖 [View](./Andriod/View.md)   
+🎖 [View](./Android/View.md)   
 
 
 
