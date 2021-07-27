@@ -25,7 +25,7 @@ $ git log --all --graph --oneline
 |/
 | * 3bb404f (master) master work 4
 |/
-* e033790 work3
+* e033790 work3g
 * d4c3092 work2
 * b415f32 work1
 
@@ -209,9 +209,7 @@ $ git log --all --graph --oneline
 
 + HEAD, branch, commit 와 checkout, reset
 
-+ 우리가 저장소를 만들면 master branch가 생성이 되고,  우리가 어떤 작업을 하는 것은 기본적으로 master위에서 버전을 만들어 가는 것이다. 저장소를 만들면 HEAD가 생성이 되고, 이  HEAD는 master branch를 가리키게 된다. HEAD를 통해 현재 나의 저장소는 master branch에 checkout 되어 있구나를 알 수 있음 . 
-
-
++ 우리가 저장소를 만들면 master branch가 생성이 되고,  우리가 어떤 작업을 하는 것은 기본적으로 master  branch 위에서 버전을 만들어 가는 것이다. 저장소를 만들면 HEAD가 생성이 되고, 이  HEAD는 master branch를 가리키게 된다. HEAD를 통해 현재 나의 저장소는 master branch에 checkout 되어 있구나를 알 수 있음 . 
 
 + `git checkout [branch_name]` : HEAD가 branch_name의 branch를 가리키도록 변경한다. 
 
