@@ -17,8 +17,10 @@ public class MainActivity extends Activity{
 + 프로젝트를 생성하면 액티비티를 상속받는 클래스가 default로 제공됩니다. 개발자 편의를 위해 자동으로 지원되는 기능으로 Activity 클래스를 상속받으면 **반드시 onCreate() 함수를 오버 라이딩**합니다. 해당 함수는 **액티비티(Activity)가 실행될 때 가장 먼저 실행**되는 함수로 마치 자바에서 프로그램 시 가장 먼저 실행되는 **main() 함수와 비슷**합니다. 
 
 + `setContentView()` => 즉, View들을 화면에 띄우는 것
-  setContentView() 함수는 첫 번째 인자로 넘겨주는 XML 레이아웃 리소스 ID에 해당하는 파일을 파싱 하여 **뷰(View)를 생성하고 뷰(View)의 속성을 지정하고 뷰(View) 간의 상하관계에 맞춰 배치**를 합니다. 이러한 일련의 과정을 **전개(Inflate)**라 부릅니다. setContentView() 함수는 xml 문서를 전개하기 위해 내부적으로 LayoutInflater 클래스를 참조합니다. 
+  setContentView() 함수는 첫 번째 인자로 넘겨주는 **XML 레이아웃 리소스 ID에 해당하는 파일**을 **파싱** 하여 **뷰(View)를 생성하고 뷰(View)의 속성(xml파일의 각 뷰 imageview, textView의 속성) 을 지정하고 뷰(View) 간의 상하관계에 맞춰 배치**를 합니다. 이러한 일련의 과정을 **전개(Inflate)**라 부릅니다. setContentView() 함수는 xml 문서를 전개하기 위해 내부적으로 LayoutInflater 클래스를 참조합니다. 
 
+  즉, xml파일의 내용을 activity에 띄우는 것?
+  
   ```kotlin
   setContentView(R.layout.activity_main);
   ```
@@ -26,7 +28,7 @@ public class MainActivity extends Activity{
   R은 res 폴더를 의미하고, layout은 R의 내부 클래스를 의미한다. 즉, `R.layout.activity_main`은 activity_main.xml을 가리키는 ID가 된다. 
 
   
-
+  
 + 전개자(Inflater)
 
   XML문서를 전개(inflate)하기 위해서 시스템상으로 제공하는 클래스가 있습니다. 바로 `LayoutInflater` 클래스로 해당 클래스의 객체를 구하는 방법은 두 가지가 있습니다.

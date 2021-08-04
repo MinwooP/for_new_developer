@@ -2,15 +2,27 @@
 
 ## 🎖 Fragment
 
-#### Fragment
+### 목차
+
+- [Fragment](Fragment)
+- [Fragment Life Cycle](Fragment-Life-Cycle)
+
++ [Fragment에서 메뉴 생성](Fragment에서-메뉴-생성)
+
+
+
+
+
+
+
+### Fragment
 
 + 대다수 Android 앱에는 화면마다 별도의 Activity가 필요하지 않습니다. 실제로 여러 일반적인 UI 패턴(예: 탭)이 *Fragment*라는 섹션을 사용하는 단일 Activity 내에 존재합니다.  
-
 + 간단하게 말해 앱의 사용자 인터페이스에서 **재사용 가능한 부분**입니다. 활동과 마찬가지로 프래그먼트는 수명 주기가 있고 사용자 입력에 응답할 수 있습니다. 프래그먼트는 활동이 화면에 표시될 때 활동의 뷰 계층 구조 내에 항상 포함됩니다. 재사용성과 모듈성을 강조하므로 **단일 활동에서 여러 프래그먼트를 동시에 호스팅**할 수도 있습니다. 각 프래그먼트는 별도의 자체 수명 주기를 관리합니다.
 
 
 
-#### Fragment Life cycle
+### Fragment Life Cycle
 
 + *Lifecycle.State* 열거형으로 표현되는 다섯 가지 상태
 
@@ -43,7 +55,7 @@
 
   
 
-#### Fragment에서 메뉴 생성
+### Fragment에서 메뉴 생성
 
  Fragment에 맞추어 메뉴가 변하도록 하려면
 

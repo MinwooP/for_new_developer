@@ -36,7 +36,7 @@
 
   + 만약, `arr`과 `&arr`이 서로 같다면, 즉 값도 같고 타입도 같다면, `arr+1`과 `&arr+1`의 값이 같아야 한다. 
 
-  + `arr + 1`의 값이 `arr`에 비해 4byte 만큼 차이가 난 것은 arr이 int형 포인터이기 때문이다. 
+  + `arr + 1`의 값이 `arr`에 비해 4byte 만큼 차이가 난 것은 **arr이 int형 포인터**이기 때문이다. 
 
     따라서, `arr + i`의 연산은 `&arr[i]`와 같다.  
 
@@ -56,17 +56,31 @@
         cout << sizeof(*ptr) << endl;  // 40
         
         cout << sizeof(&arr) << endl;  // 4 ? 
-        /* 아니, arr은 배열의 시작주소를 가리키는 상수 포인터이므로 이 주소값의 크4기는
-        4byte이고, &arr은 배열 오브젝트 전체를 가리키니까 이 크기는 40이 되어야하지 않
-        나 왜 반대인가 */
+        /* 아니, arr은 배열의 시작주소를 가리키는 상수 포인터이므로 이 주소값의 크4기는 4byte이고, &arr은 배열 오브젝트 전체를 가리키니까 이 크기는 40이 되어야하지 않나 왜 반대인가 */
     }
     ```
-
+    
     결국, 배열 포인터 `prt`과 `&arr`은 같은 것을 가리키고 있음을 알 수 있다. 
 
   ###### => 최종 정리 : arr은 배열의 시작주소를 가지고 있는 상수 포인터이고, &arr은 배열 오브젝트 전체를 가리키는 포인터다.
 
    
+
+  ##### Q)
+  
+  `int arr[3] = {1, 2, 3};`라는 배열에 대해, 
+  
+  arr + 1 하면, 4byte가 증가하고,  &arr + 1 하면 12byte가 증가하는데
+  
+  sizeof(arr)  = 12 이고, sizeof(&arr) = 4 인게 이해가 가지 않는다. &arr가 배열 전체를 가리키는데 왜 오히려 sizeof 연산을 통해서는 반대인 결과가 나오는 것일까
+  
+  #####  A) 
+  
+  우선, 포인터 변수의 sizeof 연산값은 모두 4byte이다.(32bit에서). 이와 같은 맥락으로 &arr는 배열 전체를 가리키는 포인터? **배열 포인터에 대입될 수도 있기 때문에**,  sizeof(&arr) 연산을 하면 4byte가 나오는 것 같고, sizeof(arr)는 배열 전체의 크기를 나타내기 위한? 연산의 느낌이 강하기 때문에 배열 전체의 크기를 출력해주는 것 같다. 
+
+
+
+
 
 ## 포인터 배열
 
@@ -74,7 +88,7 @@
 
   ex) 정수형 배열 => `int arr[3];`
 
-  ​	  **포인터형** 배열 => `int* prtarr[3]; `	
+  ​	  **포인터형** 배열 => `int* prtary[3]; `	
 
   <img src = "https://user-images.githubusercontent.com/31370590/127542065-142a66a7-9bb8-48f4-9cbf-ca81883966da.PNG" width = "500" height = "300">
 
@@ -83,30 +97,33 @@
   ```c++
   int main() {
       int a = 10, b = 20 ,c = 30;
-      int* ptrarr[3] = {&a, &b, &c};
+      int* ptrary[3] = {&a, &b, &c};
       
-      cout << ptrarr[1] << endl;  // 004FF998 현재 포인터 배열이므로 주솟값 출력
-      cout << *ptrarr[1] << endl; // 20
+      cout << ptrary[1] << endl;  // 004FF998 현재 포인터 배열이므로 주솟값 출력
+      cout << *ptrary[1] << endl; // 20
       
-      cout << sizeof(ptrarr) << endl; // 4(pointer의 크기) * 3 = 12?
+      cout << sizeof(ptrary) << endl; // 4(pointer의 크기) * 3 = 12?
   }
   ```
 
   배열의 원소에서 역참조를 할 때, `*(ptrarr[index])` 이렇게 괄호를 쳐주지 않아도 되는데, 이는 `[]` 대괄호 연산자가 `*` 포인터 연산자보다 우선순위가 높기 때문이다. 
 
-   
+  만약 우선순위가 반대였다면?      
+
+
+
+
 
 ## 배열 포인터
 
 + 배열 포인터 : **배열을 가리키는 포인터**
   포인터 배열이 공간을 특정 개수(들어있는 포인터의 개수)만큼 잡았다면, 배열 포인터는 포인터이기 때문에 **주소를 저장하는 공간 하나(4byte?)가 할당**된다. 
 
-+ `int (*arrptr) [3] ;` 와 같이 선언한다.  
++ `int (*arrptr) [3] ;` 와 같이 선언한다. 
 
-  앞에 타입과 합쳐서 int[3], 즉 정수형 3개의 공간을 가지는 배열을 가리키는 포인터 arrptr이다. 
-  여기서 괄호를 빼먹으면, int *arrptr[3] 으로, 포인터 배열이 되어버린다. 
-
-  ```c++
+  앞에 타입과 합쳐서 int[3], 즉 **정수형 3개의 공간을 가지는 배열을 가리키는 포인터** arrptr이다. 여기서 괄호를 빼먹으면, `int *arrptr[3]`로, 포인터 배열이 되어버린다. 
+  
+```c++
   int main(){
       int arr[3] = {1, 2, 3};
       int (*arrptr)[3] = &arr; 
@@ -116,6 +133,7 @@
       cout << arrptr << endl;			// 004FF998 
       
       cout << sizeof(arr) << endl;		// 12
+      cout << sizeof(arrptr) << endl;     // 4
       cout << sizeof(*arrptr) << endl;	// 12 ?
       /* arrptr은 배열 전체의 주소인 &arr 값을 가지고 있고, 이에 *연산자를 취하면
       *(&arr) = arr이므로, sizeof(arr) = sizeof(*arrptr) = 12로 동일하다
@@ -148,13 +166,51 @@
 
     따라서, `arrptr`과 `*arrprt`의 **값은 같지만, type이 다르다.** 
 
+
+
+
+
+
++ 배열 포인터를 **2차원 배열과 연관**시켜 생각해보기
+
+  우리는 위에서 `*(ptr+i) = ptr[i]`가 될 수 있음을 보았다. 그럼 `*arrptr`을 `arrptr[0]`으로 확장해서 생각해볼 수 있지 않을까?
+
+  근데, `ptr`은 int 포인터 변수였고, `arrptr`은 크기가 배열 전체인 12바이트 포인터 변수 였다. 따라서, ** `arrptr`을 저렇게 배열처럼 쓰려면 12byte짜리 타입의 공간이 여러개 있는 배열이다**라고 생각해야 한다. 
+
+  ```c++
+  int main(){
+      
+      int ary2d[2][3] = { 1, 2, 3, 10, 20, 30 };
+  	cout << ary2d << endl; // 배열의 시작주소 = A, 즉 배열의 첫번째 요소 arr2d[0][0]의 주소값 출력
+      cout << *ary2d << endl; // A
+  	cout << sizeof(ary2d) << endl; // 배열 전체의 크기 24?
+  	cout << sizeof(*ary2d) << endl;  // 12
+  	cout << sizeof(**ary2d) << endl; // 4
   
+  	// 배열 포인터에 2차원 배열의 이름 대입
+  	int(*aryptr)[3] = ary2d;
+  	cout << &aryptr << endl; // ? 이는 모르는 값
+  	cout << aryptr<< endl;   // A
+  	cout << (size_t)aryptr - (size_t)&aryptr << endl; // 이는 원래 모른다.
+  
+  
+  	cout << ary2d << endl; // A
+  	cout << ary2d + 1 << endl; // A + 12
+  	cout << (size_t)(ary2d + 1) - (size_t)(ary2d) << endl; // 12
+      
+      cout << ary2d + 1 << endl; // A + 12
+      cout << *(ary2d + 1) << endl; // *(ary2d + 1) = art2d[1] = A + 12
+  	cout << **(ary2d + 1) << endl; // 10
+      cout << sizeof(*(ary2d+1)) << endl; // 12
+      cout << sizeof(**(ary2d+1)) << endl; // 4
+      cout << (*(art2d+1))[0] << endl; // 10
+  }
+  ```
 
+  <img src = "https://user-images.githubusercontent.com/31370590/127614984-d421b52e-05ba-4f82-bade-464e1d3abc73.PNG">
 
-
-
-
-
+  + 여기서, `ary2d[0]` *(ary2d+0) , `ary2d[1]` *( ary2d+1) 은 각 12바이트 배열의 이름이 되는 것이다. 
+  + `int(*aryptr)[3] = ary2d;`에서, 배열 포인터에 배열의 이름을 넣었다. 
 
 
 
@@ -364,16 +420,6 @@ char **P;
   ```
 
   
-
-
-
-
-
-
-
-
-
-
 
 
 
