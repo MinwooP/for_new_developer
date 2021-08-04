@@ -14,7 +14,7 @@
 + `$ git log --all --graph --oneline` :  각 버전이 한 줄로 간결하게 표시됨
 + `$ git branch [branch_name]`
 + `head -> master` : 현재 사용자가 master에 속해있는 상태이다. 
-+ `$ git checkout [branch_name]` : 해당 브랜치로 checkout하면 사용자의 working copy가 그 브랜치의 마지막 커밋 상태로 바뀐다. 
++ `$ git checkout [branch_name]` : 해당 브랜치로 checkout하면 **사용자의 working copy가 그 브랜치의 마지막 커밋 상태로 바뀐다.** 
 
 ```git
 $ git log --all --graph --oneline
@@ -207,9 +207,9 @@ $ git log --all --graph --oneline
 
 ## 🚩 reset vs checkout
 
-+ HEAD, branch, commit 와 checkout, reset
++ HEAD, branch, commit과 checkout, reset
 
-+ 우리가 저장소를 만들면 master branch가 생성이 되고,  우리가 어떤 작업을 하는 것은 기본적으로 master  branch 위에서 버전을 만들어 가는 것이다. 저장소를 만들면 HEAD가 생성이 되고, 이  HEAD는 master branch를 가리키게 된다. HEAD를 통해 현재 나의 저장소는 master branch에 checkout 되어 있구나를 알 수 있음 . 
++ 우리가 저장소를 만들면 master branch가 생성이 되고,  우리가 어떤 작업을 하는 것은 기본적으로 master  branch 위에서 버전을 만들어 가는 것이다. 저장소를 만들면 HEAD가 생성이 되고, 이 HEAD는 master branch를 가리키게 된다. HEAD를 통해 현재 나의 저장소는 master branch에 checkout 되어 있구나를 알 수 있음 . 
 
 + `git checkout [branch_name]` : HEAD가 branch_name의 branch를 가리키도록 변경한다. 
 
@@ -235,7 +235,7 @@ $ git log --all --graph --oneline
 
 <br>
 
-4. `git branch google` : 이 branch가 어떤 버전으로 시작할 것인지를 결정해야 하는데, 그때 HEAD가 가리키는 master가 가리키는 2번 버전으로 시작한다.     
+4. `git branch google` : 이 **branch가 어떤 버전으로 시작할 것인가**를 결정해야 하는데, 그때 **HEAD가 가리키는 master가 가리키는 2번 버전으로 시작**한다.     
 
    <img src = "https://user-images.githubusercontent.com/31370590/125763837-9451f33e-0d7c-4c9c-b4fb-91b9ec34f6c4.PNG" width = "400" height = "400">     
 
@@ -270,7 +270,7 @@ $ git log --all --graph --oneline
   + checkout : 무엇인가를 바꾸는 느낌
   + reset : 무엇인가를 지우는 느낌
 
-  => checkout은 HEAD를 제어한다. reset은 HEAD가 branch를 가리키고 있는 동안은  branch를 제어한다.   
+  => **checkout은 HEAD를 제어한다.** reset은 HEAD가 branch를 가리키고 있는 동안은  branch를 제어한다.   
 
    <br>
 
