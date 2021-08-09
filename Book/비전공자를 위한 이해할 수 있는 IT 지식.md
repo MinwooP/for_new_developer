@@ -6,7 +6,7 @@
 
 -------
 
-+ [Orientation](#Orientation)
++ [Orientation](#-Orientation)
 + [프로그래밍 언어와 운영체제](#프로그래밍-언어와-운영체제)
 + [네트워크, 클라이언트, 서버](#네트워크,-클라이언트,-서버)
 + [API와 JSON](#)
