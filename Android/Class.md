@@ -1,6 +1,29 @@
 # Class
 
+## <div align = "center">목차</div>
 
+-----
+
++ [Class](#-Class)
++ [toString](#-toString)
++ [Data Class](#-Data-Class)
++ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----
+
+## 🎖 Class
 
 코틀린 class의  특징
 
@@ -11,13 +34,7 @@
 + get/set 메소드의 이름은 앞에 get/set 을 붙이고 PascalCase로 변수 이름을 붙여줍니다.
 + 프로퍼티를 `private`으로 선언하면 `get/set` 메소드가 생성되지 않고, 객체 내부에서만 접근할 수 있습니다.
 
-
-
 + 생성자 인자에 `var/val`을 붙여주면 클래스 내부에 프로퍼티를 생성하고 초기화를 합니다.
-
-
-
-
 
 > 자바 `final` keyword
 >
@@ -47,11 +64,13 @@
 
 -----
 
-### toString
+##  🎖 toString
 
 + toString() 메서드 재정의
 
-  + **객체 인스턴스를 출력하면 객체의 `toString()` 메서드가 호출**됩니다. Kotlin에서는 모든 클래스가 자동으로 `toString()` 메서드를 상속합니다. 이 메서드의 기본 구현에서는 **인스턴스의 메모리 주소가 있는 객체 유형**을 반환합니다. 
+  + **객체 인스턴스를 출력하면 객체의 `toString()` 메서드가 호출**됩니다. Kotlin에서는 모든 클래스가 자동으로 `toString()` 메서드를 상속합니다. 
+
+  + `toString()` 메서드의 기본 구현에서는 **인스턴스의 메모리 주소가 있는 객체 유형**을 반환합니다. 
 
     ```kotlin
     open class Item(val name: String, val price: Int)
@@ -101,13 +120,14 @@
     }
     ```
 
-    
+
+
 
 
 
 -----
 
-## Data class
+## 🎖 Data Class
 
 + 클래스의 용도 중 하나로 데이터 전달이 있다. 코틀린에서는 데이터 전달용 객체(Data Transfer Object, DTO)를 편리하게 선언할 수 있도록 `data class`라는 키워드를 지원한다. 데이터를 표현하는 객체는 다음의 메소드를 지원해야 한다. 자바로 `DTO`를 선언하려면 위의 메소드를 모두 정의해야 한다. 그러나 코틀린에서는 프로퍼티만 잘 정의하면 `data class`가 위의 메소드를 모두 정의해 준다
 
