@@ -27,7 +27,7 @@ public class MainActivity extends Activity{
 
   R은 res 폴더를 의미하고, layout은 R의 내부 클래스를 의미한다. 즉, `R.layout.activity_main`은 activity_main.xml을 가리키는 ID가 된다. 
 
-  
+  <br>
   
 + 전개자(Inflater)
 
@@ -51,7 +51,9 @@ public class MainActivity extends Activity{
   View view  = getLayoutInflater().inflate(R.layout.activity_sub, null);
   ```
 
+<br>
 
+<br>
 
 
 -----
@@ -72,13 +74,13 @@ public class MainActivity extends Activity{
   }
   ```
 
-  
+  <br>
 
 + 이렇게 findViewById를 이용하면, activity_main.xml 에서 적용 시켰던 글자를 넣거나, 글자색을 변경하거나 등의 작업을 할 수 있는 메소드를 지원하게 된다. 특히, 가장 중요한 이벤트 처리가 가능한 메소드도 지원을 하게 된다. 
 
+<br>
 
-
-
+<br>
 
 -----
 
@@ -86,7 +88,7 @@ public class MainActivity extends Activity{
 
 + 모든 UI 요소에 액세스하여 사용자의 입력을 읽어야 한다. 코드가 `View`에서 메서드를 호출하거나 속성(ex) myButton.text)에 액세스하기 전에 먼저 `Button` 또는 `TextView`와 같은 `View`에 대한 참조를 찾아야 한다. `findViewById()` 메서드를 통해 ** `View`의 ID가 주어지면 이 뷰에 대한 참조를 반환**하는 작업을 실행하지만, 이는 앱에 뷰가 더 많아지고 UI가 복잡해짐에 따라 번거로워질 수 있다.
 
-
+<br>
 
 + View Binding 사용
 
@@ -102,7 +104,7 @@ public class MainActivity extends Activity{
 
      모듈 Gradle 파일에서 뷰 바인딩을 활성화하면, 레이아웃 파일마다 바인딩 클래스가 생성됩니다.
 
-     
+     <br>
 
   2. 결합 객체 초기화 
 
@@ -110,7 +112,7 @@ public class MainActivity extends Activity{
 
        <img src = "https://user-images.githubusercontent.com/31370590/125413956-9674fa02-f7ac-4de5-a4f0-bdcd9435ece9.PNG " width = "560" height = "400">
 
-       
+       <br>
 
      + `MainActivity.kt`
 
@@ -131,13 +133,13 @@ public class MainActivity extends Activity{
 
          `lateinit` 키워드는 새로운 키워드로, **코드가 변수를 사용하기 전에 먼저 초기화할 것임을 확인**해 줍니다. 프로퍼티 초기화를 미루는 것. 변수를 초기화하지 않으면 앱이 비정상 종료됩니다.
 
-       
+       <br>
 
        + `binding = ActivityMainBinding.inflate(layoutInflater)`
 
          `activity_main.xml` 레이아웃에서 `Views`에 액세스하는 데 사용할 `binding` 객체를 초기화합니다.
 
-       
+       <br>
 
        + `setContentView(binding.root)`
 
@@ -145,7 +147,7 @@ public class MainActivity extends Activity{
 
          <span style="color:red">그러면, `binding.root`가 `R.layout.activity_main`을 가리키는 것?</span>
 
-     
+     <br>
 
   3. binding 사용
 
@@ -165,8 +167,3 @@ public class MainActivity extends Activity{
        ```
 
        > 결합 클래스의 이름은 XML 파일의 이름을 카멜 표기법으로 변환하고 이름 끝에 'Binding'을 추가하여 생성됩니다. 마찬가지로 각 뷰를 위한 참조는 밑줄을 삭제하고 뷰 이름을 카멜 표기법으로 변환하여 생성됩니다. 예를 들어 `activity_main.xml`은 `ActivityMainBinding`이 되고 `binding.textView`로 `@id/text_view`에 액세스할 수 있습니다.
-
-
-
-
-
