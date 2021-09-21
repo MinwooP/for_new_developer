@@ -86,7 +86,7 @@ public class MainActivity extends Activity{
 
 ## 🎖 View Binding
 
-+ 모든 UI 요소에 액세스하여 사용자의 입력을 읽어야 한다. 코드가 `View`에서 메서드를 호출하거나 속성(ex) myButton.text)에 액세스하기 전에 먼저 `Button` 또는 `TextView`와 같은 `View`에 대한 참조를 찾아야 한다. `findViewById()` 메서드를 통해 ** `View`의 ID가 주어지면 이 뷰에 대한 참조를 반환**하는 작업을 실행하지만, 이는 앱에 뷰가 더 많아지고 UI가 복잡해짐에 따라 번거로워질 수 있다.
++ 모든 UI 요소에 액세스하여 사용자의 입력을 읽어야 한다. 코드가 `View`에서 메서드를 호출하거나 속성(ex) myButton.text)에 액세스하기 전에 먼저 `Button` 또는 `TextView`와 같은 `View`에 대한 참조를 찾아야 한다. `findViewById()` 메서드를 통해 **`View`의 ID가 주어지면 이 뷰에 대한 참조를 반환**하는 작업을 실행하지만, 이는 앱에 뷰가 더 많아지고 UI가 복잡해짐에 따라 번거로워질 수 있다.
 
 <br>
 
@@ -108,7 +108,7 @@ public class MainActivity extends Activity{
 
   2. 결합 객체 초기화 
 
-     +  앱의 각 `View`마다 `findViewById()`를 호출하는 대신, 결합 객체를 한 번 만들고 초기화
+     +  ​	
 
        <img src = "https://user-images.githubusercontent.com/31370590/125413956-9674fa02-f7ac-4de5-a4f0-bdcd9435ece9.PNG " width = "560" height = "400">
 

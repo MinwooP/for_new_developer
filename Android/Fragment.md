@@ -75,6 +75,8 @@ Fragment에 맞추어 메뉴가 변하도록 하려면
 
    `onCreateVIew`에서 `setHasOptionsMenu(true)`를 써줘야 한다. 이 명령이 있어야 액티비티보다 프래그먼트의 메뉴가 우선된다. 
 
+   
+
 2. 메뉴 생성
 
    ```java
@@ -86,6 +88,8 @@ Fragment에 맞추어 메뉴가 변하도록 하려면
    ```
 
    `onCreateOptionMenu()` 메서드를 구현해, `inflater.inflate(R.menu.menu_ID, menu)`를 사용한다. 적절히 만들어둔 메뉴의 ID를 사용하자. 또한 프래그먼트와 함께 사용되는 `onCreateOptionsMenu()` 메서드에는 return 문이 필요하지 않다.
+
+   
 
 3. 메뉴 이벤트 설정
 

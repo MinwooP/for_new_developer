@@ -31,7 +31,7 @@
 
   + `sorted()` : 요소가 오름차순으로 정렬된 새 목록을 반환    
 
-
+<br>
 
 + Mutable List : 변경가능한 List
 
@@ -62,7 +62,7 @@
 
   + `entrees.size()` 
 
-
+<br>
 
 ### List 반복
 
@@ -79,7 +79,7 @@
   println("Total Guest Count: $totalGuests")
   ```
 
-
+<br>
 
 + `for`문
 
@@ -91,7 +91,8 @@
 
   `number` 변수는 `numberList`의 첫 번째 요소와 같게 설정되고 코드 블록이 실행됩니다. 그러면 `number` 변수가 자동으로 `numberList`의 다음 요소가 되도록 업데이트되고 코드 블록이 다시 실행됩니다. 이 작업은 `numberList`가 끝날 때까지 목록의 각 요소에 반복됩니다. 
 
-  
+
+<br>
 
 
 

@@ -100,7 +100,7 @@
 
 + 런처 아이콘 말고 **앱에서 사용하는 아이콘**
 
-+ 다양한 화면 밀도에 맞는 여러 버전의 비트맵 이미지를 제공하는 대신 **벡터 드로어블**을 사용하는 것이 좋습니다. 벡터 드로어블은 이미지를 구성하는 실제 픽셀을 저장하는 대신 이미지를 만드는 방법에 관한 지침을 저장하는 XML 파일로 표현됩니다. 벡터 드로어블은 시각적 품질 손실이나 파일 크기 증가 없이 확장하거나 축소할 수 있습니다.
++ 다양한 화면 밀도에 맞는 여러 버전의 비트맵 이미지를 제공하는 대신 **벡터 드로어블**을 사용하는 것이 좋습니다. 벡터 드로어블은 이미지를 구성하는 실제 픽셀을 저장하는 대신 **이미지를 만드는 방법에 관한 지침을 저장하는 XML 파일로 표현**됩니다. 벡터 드로어블은 시각적 품질 손실이나 파일 크기 증가 없이 확장하거나 축소할 수 있습니다.
 
 + [Material design->resource->~](https://fonts.google.com/icons)에서 5개 테마 중 하나를 사용하여 그릴 수 있음(vector drawble 파일과 bitmap 이미지 파일 5개 다 제공)
 
@@ -109,7 +109,6 @@
   Resource Manager => Vector asset => Clip Art에서 아이콘 선택 or Local에서 SVG, PSD 파일 선택
 
 + 이를 사용하려면 xml파일에서 imageView를 추가하고, image view의 속성에 `app:srcCompat="@drawable/[vector_asset_id]"`를 추가한다.
-
 
 <br>
 
@@ -168,6 +167,8 @@
       android:layout_height="wrap_content" />
   ```
 
+  
+
 + `ItemAdapter` class를 만들고 `RecyclerView`에 전달할 데이터 목록을 `Adapter`에 전달할 수 있도록 생성자에 매개변수를 추가(문자열 리소스를 확인하기 위해서 `Context` 유형의 매개변수도 추가)
 
 + `ItemAdapter` class 안에 `ItemViewHolder` class도 생성(`ItemAdapter`만 `ItemViewHolder`를 사용하므로)
@@ -193,8 +194,12 @@
   ```
 
   + `getItemCount()` => 데이터 세트의 크기를 반환
+
   + `onCreateViewHolder()` => `RecyclerView`의 ViewHolder를 만들기 위해 레이아웃 관리자가 호출합니다(재사용할 수 있는 기존 뷰 홀더가 없는 경우)
+
   + `onBindViewHolder()` =>  list item view의 콘텐츠를 바꾸기 위해 레이아웃 관리자가 호출
+
+    
 
 + RecyclerView를 사용하도록 MainActivity 수정
 
