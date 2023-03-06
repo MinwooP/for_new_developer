@@ -107,5 +107,3 @@ __software interrupt__
 + [Easy is perfect](http://melonicedlatte.com/computerarchitecture/2019/02/12/213856.html)
 
 + [탕구리's 블로그](https://real-dongsoo7.tistory.com/m/93?category=784608)
-
-  
