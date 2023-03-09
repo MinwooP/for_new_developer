@@ -30,5 +30,8 @@
     <ClCompile Include="2309_일곱난쟁이.cpp">
       <Filter>소스 파일\기초코드작성요령</Filter>
     </ClCompile>
+    <ClCompile Include="10093_숫자.cpp">
+      <Filter>소스 파일\기초코드작성요령</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
