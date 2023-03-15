@@ -16,6 +16,9 @@
     <Filter Include="소스 파일\기초코드작성요령">
       <UniqueIdentifier>{7bd755a7-6898-43b1-96b1-62db78ad8341}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\배열">
+      <UniqueIdentifier>{97d60ebb-9bfc-4d03-b512-657989b92d2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -32,6 +35,27 @@
     </ClCompile>
     <ClCompile Include="10093_숫자.cpp">
       <Filter>소스 파일\기초코드작성요령</Filter>
+    </ClCompile>
+    <ClCompile Include="1267_핸드폰요금.cpp">
+      <Filter>소스 파일\기초코드작성요령</Filter>
+    </ClCompile>
+    <ClCompile Include="10804_카드역배치.cpp">
+      <Filter>소스 파일\기초코드작성요령</Filter>
+    </ClCompile>
+    <ClCompile Include="최댓값.cpp">
+      <Filter>소스 파일\기초코드작성요령</Filter>
+    </ClCompile>
+    <ClCompile Include="배열 제거,추가 함수 짜보기.cpp">
+      <Filter>소스 파일\배열</Filter>
+    </ClCompile>
+    <ClCompile Include="소스1.cpp">
+      <Filter>소스 파일\배열</Filter>
+    </ClCompile>
+    <ClCompile Include="10808_알파벳개수.cpp">
+      <Filter>소스 파일\배열</Filter>
+    </ClCompile>
+    <ClCompile Include="소스3.cpp">
+      <Filter>소스 파일\배열</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
