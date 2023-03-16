@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\배열">
       <UniqueIdentifier>{97d60ebb-9bfc-4d03-b512-657989b92d2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\연결리스트">
+      <UniqueIdentifier>{6517cb73-2744-4eea-a6fa-3e2fa2cefa79}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -48,14 +51,32 @@
     <ClCompile Include="배열 제거,추가 함수 짜보기.cpp">
       <Filter>소스 파일\배열</Filter>
     </ClCompile>
-    <ClCompile Include="소스1.cpp">
-      <Filter>소스 파일\배열</Filter>
-    </ClCompile>
     <ClCompile Include="10808_알파벳개수.cpp">
       <Filter>소스 파일\배열</Filter>
     </ClCompile>
-    <ClCompile Include="소스3.cpp">
+    <ClCompile Include="3273_두수의합.cpp">
       <Filter>소스 파일\배열</Filter>
+    </ClCompile>
+    <ClCompile Include="2577_숫자의개수.cpp">
+      <Filter>소스 파일\배열</Filter>
+    </ClCompile>
+    <ClCompile Include="1475_방번호.cpp">
+      <Filter>소스 파일\배열</Filter>
+    </ClCompile>
+    <ClCompile Include="13300_방배정.cpp">
+      <Filter>소스 파일\배열</Filter>
+    </ClCompile>
+    <ClCompile Include="1919_애너그램 만들기.cpp">
+      <Filter>소스 파일\배열</Filter>
+    </ClCompile>
+    <ClCompile Include="소스1.cpp">
+      <Filter>소스 파일\연결리스트</Filter>
+    </ClCompile>
+    <ClCompile Include="소스2.cpp">
+      <Filter>소스 파일\연결리스트</Filter>
+    </ClCompile>
+    <ClCompile Include="소스3.cpp">
+      <Filter>소스 파일\연결리스트</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

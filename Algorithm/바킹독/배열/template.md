@@ -1,6 +1,6 @@
-# [14889번_암호만들기](https://www.acmicpc.net/problem/14889)
+# [3273번_두수의 합](https://www.acmicpc.net/problem/14889)
 
-##  Category : 브루트포스-백트래킹
+##  Category : 바킹독-
 
 -----
 
