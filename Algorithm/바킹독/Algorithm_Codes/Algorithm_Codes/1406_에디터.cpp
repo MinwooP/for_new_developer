@@ -57,9 +57,7 @@ int main()
 			char letter;
 			cin >> letter;
 
-			if (cursor != L.begin()) {
-				L.insert(cursor, letter);
-			}
+			L.insert(cursor, letter);
 		}
 	}
 

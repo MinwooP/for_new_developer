@@ -69,13 +69,13 @@
     <ClCompile Include="1919_애너그램 만들기.cpp">
       <Filter>소스 파일\배열</Filter>
     </ClCompile>
-    <ClCompile Include="소스1.cpp">
+    <ClCompile Include="1158_요세푸스 문제.cpp">
       <Filter>소스 파일\연결리스트</Filter>
     </ClCompile>
     <ClCompile Include="1406_에디터.cpp">
       <Filter>소스 파일\연결리스트</Filter>
     </ClCompile>
-    <ClCompile Include="소스3.cpp">
+    <ClCompile Include="5397_키로거.cpp">
       <Filter>소스 파일\연결리스트</Filter>
     </ClCompile>
   </ItemGroup>
