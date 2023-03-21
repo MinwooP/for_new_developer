@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\연결리스트">
       <UniqueIdentifier>{6517cb73-2744-4eea-a6fa-3e2fa2cefa79}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\스택">
+      <UniqueIdentifier>{8f9bc77b-9c68-4891-a51e-0496a465e1b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -77,6 +80,21 @@
     </ClCompile>
     <ClCompile Include="5397_키로거.cpp">
       <Filter>소스 파일\연결리스트</Filter>
+    </ClCompile>
+    <ClCompile Include="소스1.cpp">
+      <Filter>소스 파일\스택</Filter>
+    </ClCompile>
+    <ClCompile Include="소스2.cpp">
+      <Filter>소스 파일\스택</Filter>
+    </ClCompile>
+    <ClCompile Include="소스3.cpp">
+      <Filter>소스 파일\스택</Filter>
+    </ClCompile>
+    <ClCompile Include="소스4.cpp">
+      <Filter>소스 파일\스택</Filter>
+    </ClCompile>
+    <ClCompile Include="10773_제로.cpp">
+      <Filter>소스 파일\스택</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

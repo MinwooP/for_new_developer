@@ -1,4 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: 중간 디렉터리(Debug\)에 다른 프로젝트(Algorithm_Codes_2.vcxproj, Algorithm_Codes.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
   소스1.cpp
-C:\Users\alsd2\Desktop\for_new_developer\Algorithm\바킹독\Algorithm_Codes\Algorithm_Codes\소스1.cpp(50,16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\alsd2\Desktop\for_new_developer\Algorithm\바킹독\Algorithm_Codes\Algorithm_Codes\소스1.cpp(64,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   Algorithm_Codes.vcxproj -> C:\Users\alsd2\Desktop\for_new_developer\Algorithm\바킹독\Algorithm_Codes\Debug\Algorithm_Codes_1.exe
