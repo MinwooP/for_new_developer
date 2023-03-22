@@ -22,50 +22,8 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
-
-	stack<int> S;
-	list<int> L; 
-	vector<char> ans;
-	int N;
-
-	cin >> N;
-	int num;
-	for (int i = 0; i < N;i++) {
-		cin >> num;
-		L.push_back(num);
-	}
-
-
-	// 8
-	// 4 3 6 8 7 5 2 1 
 	
-	int idx = 1;
-	S.push(idx++);
-	ans.push_back('+');
-
-	while (!L.empty()) {
-		if (S.top() > L.front()) { // 비어있을 때 top은 무엇을 리턴 ?
-			cout << "NO";
-			return 0;
-		}
-
-		while (S.top() < L.front()) {
-			S.push(idx++);
-			ans.push_back('+');
-		}
-
-		if (S.top() == L.front()) {
-			S.pop();
-			L.pop_front();
-			ans.push_back('-');
-		}
-	}
-
-	for (int i = 0; i < ans.size();i++) {
-		cout << ans[i] << '\n';
-	}
 
 	return 0;
 }
 
-// pop을 통해 얻어야 하는 숫자보다 top이 항상 같거나 작아야 함. 

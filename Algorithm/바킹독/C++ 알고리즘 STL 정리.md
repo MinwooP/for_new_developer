@@ -1,4 +1,4 @@
-## 최댓값, 최솟값 구하기
+### 최댓값, 최솟값 구하기
 
 `min(a, b)`, `max(a, b)`
 
@@ -9,6 +9,8 @@ a와 b중 최솟값을 반환하는 함수
 `min({a, b, c})`, `max({a, b c})`
 
 3개 이상의 수를 비교하고 싶다면, 중괄호를 이용해 감싸주면 된다. 
+
+
 
 
 
@@ -89,5 +91,49 @@ sort(v.begin(), v.end(), cmp);
 
 
 
+### Pair
 
++ Pair class는 사용자가 지정한 2개의 타입의 데이터를 저장하는데 사용된다. 
 
++ pair class는 `#include <utility>`라는 헤더파일에 존재하는 STL 이지만, `<algorithm>`, `<vector>` 헤더파일에 `utility` 헤더 파일이 이미 포함되어 있기 때문에, 
+
+  `#inlucde <vector>`만 해도 된다. 
+
++ Pair 함수의 사용
+
+  + `pair<type1,type2> p`
+    pair 클래스의 객체 p를 생성합니다. 객체 이름은 p가 아니어도 상관없습니다.
+
+    ```c++
+    pair<int, int> p; // int 타입 데이터 2개를 관리할 수 있는 pair 클래스의 p객체
+    pair<int, double> p;// int타입과 double 타입 데이터를 한번에 관리할 수 있는 pair 클래스의 p객체
+    ```
+
+  + `p.first`
+    p의 첫번째 인자를 반환합니다.
+
+  + `p.second`
+    p의 두번째 인자를 반환합니다.
+
+  + `make_pair(값1, 값2)`
+    값1, 값2를 한쌍으로 하는 pair를 만들어서 반환합니다.
+
++ 예제 코드
+
+  ```c++
+  pair<int, double> p;
+  
+  int main()
+  {
+  	p.first = 1; //pair의 첫번째 인자에 접근
+      p.second = 2.1; //pair의 두번째 인자에 접근
+      
+      cout<<"first value: "<<p.first<<endl;
+      cout<<"second value: "<<p.second<<endl;
+      
+      p = make_pair(1, 2.1); // p.first = 1, p.second = 2.1 과 동일
+      return 0;
+  }
+  ```
+
+  
