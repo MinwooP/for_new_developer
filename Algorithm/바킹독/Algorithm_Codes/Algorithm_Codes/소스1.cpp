@@ -23,6 +23,16 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 	
+	int N;
+	cin >> N;
+
+	int num;
+	while (N--) {
+		cin >> num;
+
+
+
+	}
 
 	return 0;
 }
