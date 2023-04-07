@@ -81,7 +81,7 @@
     <ClCompile Include="5397_키로거.cpp">
       <Filter>소스 파일\연결리스트</Filter>
     </ClCompile>
-    <ClCompile Include="소스1.cpp">
+    <ClCompile Include="17298_오큰수.cpp">
       <Filter>소스 파일\스택</Filter>
     </ClCompile>
     <ClCompile Include="6198번_옥상가꾸기.cpp">
