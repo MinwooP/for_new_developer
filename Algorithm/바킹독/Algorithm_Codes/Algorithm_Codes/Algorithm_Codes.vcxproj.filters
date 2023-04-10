@@ -96,7 +96,7 @@
     <ClCompile Include="10773_제로.cpp">
       <Filter>소스 파일\스택</Filter>
     </ClCompile>
-    <ClCompile Include="소스2.cpp">
+    <ClCompile Include="3015_오아시스재결합.cpp">
       <Filter>소스 파일\스택</Filter>
     </ClCompile>
     <ClCompile Include="소스3.cpp">

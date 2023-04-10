@@ -24,63 +24,39 @@ int main()
 	cout.tie(0);
 
 	int N;
+	long long ans = 0;
 	stack<int> S;
-	stack<int> T;
-
 
 	cin >> N;
-	int num = 0;
+	long long num = 0;
+
 	while (N--) {
 		cin >> num;
-		S.push(num);
-	}
-
-	int ans = 0;
-
-	while (S.size() > 1) { // S의 사이즈가 2가1 될때까지 반복 ? 
-		int current = S.top();
-		S.pop();
-
-		int max = S.top();
-		T.push(S.top());
-		S.pop();
-		ans++;
-
-		if (S.empty()) {
-			break;
-		}
-
-		if (current < max) {
-			S.push(T.top());
-			T.pop();
+		if (S.empty()) { // 맨 처음 수는 바로 스택에 넣어줌. 
+			S.push(num);
 			continue;
+		}	
+		else if (num < S.top()) {
+			ans++;
+			S.push(num);
 		}
+		else {
+			ans += S.size();
 
-		while (!S.empty()) { // 서로 볼 수 있음
-			if (S.top() >= max) {
-				ans++;
-				max = S.top();
+			while (!S.empty() && S.top() < num) {
+				S.pop();
 			}
 
-			if (S.top() > current) {
-				break;
-			}
-
-			T.push(S.top());
-			S.pop();
-		}
-
-		while (!T.empty()) {
-			S.push(T.top());
-			T.pop();
+			S.push(num);
 		}
 	}
 
 	cout << ans;
-
 	return 0;
 }
 
 // 2 4 1 2 2 5 1 
 // 10 
+
+
 
