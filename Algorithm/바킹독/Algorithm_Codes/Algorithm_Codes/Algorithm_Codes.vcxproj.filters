@@ -25,6 +25,9 @@
     <Filter Include="소스 파일\스택">
       <UniqueIdentifier>{8f9bc77b-9c68-4891-a51e-0496a465e1b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\BFS">
+      <UniqueIdentifier>{aa62aabb-fb8c-4d41-b93f-4bf912d6b66c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -99,8 +102,41 @@
     <ClCompile Include="3015_오아시스재결합.cpp">
       <Filter>소스 파일\스택</Filter>
     </ClCompile>
+    <ClCompile Include="소스1.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="연습2_2178_미로탐색.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="연습1_1926.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="BFS기본구현.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="소스2.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
     <ClCompile Include="소스3.cpp">
-      <Filter>소스 파일\스택</Filter>
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="소스4.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="소스5.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="소스6.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="소스7.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="소스8.cpp">
+      <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="연습3_7576_토마토.cpp">
+      <Filter>소스 파일\BFS</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
