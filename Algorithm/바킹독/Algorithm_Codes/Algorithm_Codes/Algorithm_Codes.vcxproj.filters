@@ -108,7 +108,7 @@
     <ClCompile Include="연습2_2178_미로탐색.cpp">
       <Filter>소스 파일\BFS</Filter>
     </ClCompile>
-    <ClCompile Include="연습1_1926.cpp">
+    <ClCompile Include="연습1_1926_그림.cpp">
       <Filter>소스 파일\BFS</Filter>
     </ClCompile>
     <ClCompile Include="BFS기본구현.cpp">
@@ -129,10 +129,10 @@
     <ClCompile Include="소스6.cpp">
       <Filter>소스 파일\BFS</Filter>
     </ClCompile>
-    <ClCompile Include="소스7.cpp">
+    <ClCompile Include="연습5_1697_숨바꼭질.cpp">
       <Filter>소스 파일\BFS</Filter>
     </ClCompile>
-    <ClCompile Include="소스8.cpp">
+    <ClCompile Include="연습4_불.cpp">
       <Filter>소스 파일\BFS</Filter>
     </ClCompile>
     <ClCompile Include="연습3_7576_토마토.cpp">
