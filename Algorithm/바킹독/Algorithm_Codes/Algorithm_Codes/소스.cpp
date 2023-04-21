@@ -13,7 +13,6 @@
 #include <stack>
 #include <map>
 #include<iomanip>
-
 using namespace std;
 
 int main()
@@ -22,5 +21,4 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 
-	return 0;
 }

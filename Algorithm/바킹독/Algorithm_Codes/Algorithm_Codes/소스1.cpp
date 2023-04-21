@@ -14,52 +14,39 @@
 #include <map>
 #include<iomanip>
 using namespace std;
-#define X first
-#define Y second // pair에서 first, second를 줄여서 쓰기 위해서 사용
 
-int T[1000001];
-int dx[2] = {1,-1};
+int n, m; // 1~n 까지의 수 중에 m개를 고른 수열 
 
-int main(void) {
-	ios::sync_with_stdio(0);
+int seq[10]; // 수열
+bool isused[10]; 
+
+void f(int k) { // seq[k]를 정하는 것.
+	if (k == m) { // 이미 m개가 정해져 있을 것  
+		// 수열 출력
+		for (int i = 0; i<m ; i++) {
+			cout << seq[i] << ' ';
+		}
+		cout << "\n";
+		return;
+	}
+
+	for (int i = 1; i <= n; i++) {
+		if (isused[i]) continue;
+
+		seq[k] = i;
+		isused[i] = true;
+		f(k + 1); // 이제 다음 수를 고를 차례
+		isused[i] = false;
+	}
+}
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
 	cin.tie(0);
+	cout.tie(0);
 
-	int N, K;
-	cin >> N >> K;  // K를 찾는 것.
-
-	queue<int> Q;
-
-	for (int i = 0; i <= 1000001; i++) {
-		T[i] = -1;
-	}
-
-	T[N] = 0; 
-	Q.push(N);
-
-	while (!Q.empty()) {
-		auto cur = Q.front();
-		Q.pop();
-
-		//cout << cur << ' ' << T[cur] << endl;
-		
-		if (cur == K) {
-			cout << T[cur];
-			return 0;
-		}
-
-		for (int dir = 0; dir < 3; dir++) { // 상하좌우 칸을 살펴볼 것이다. dir = 0, 1, 2, 3
-			int nx;
-			if (dir == 2)
-				nx = cur * 2; // *2
-			else
-				nx = cur + dx[dir]; // +1 or -1
-
-			if (nx < 0 || nx > 100000) continue; // 범위 밖일 경우 넘어감
-			if (T[nx] >= 0) continue; // 이미 방문한 칸인 경우 넘어감
-			T[nx] = T[cur] + 1; // (nx, ny)를 방문했다고 명시
-			Q.push(nx);
-		}
-	}
-
+	cin >> n >> m;
+	f(0);
 	return 0;
 }

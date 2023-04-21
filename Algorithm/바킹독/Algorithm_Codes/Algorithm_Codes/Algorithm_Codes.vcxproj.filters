@@ -28,6 +28,12 @@
     <Filter Include="소스 파일\BFS">
       <UniqueIdentifier>{aa62aabb-fb8c-4d41-b93f-4bf912d6b66c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\재귀">
+      <UniqueIdentifier>{67f65a3e-c065-44cc-9e3c-295ede994410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\백트래킹">
+      <UniqueIdentifier>{da3c0c1c-3bf0-43a9-947d-8a55089fc0f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -102,9 +108,6 @@
     <ClCompile Include="3015_오아시스재결합.cpp">
       <Filter>소스 파일\스택</Filter>
     </ClCompile>
-    <ClCompile Include="소스1.cpp">
-      <Filter>소스 파일\BFS</Filter>
-    </ClCompile>
     <ClCompile Include="연습2_2178_미로탐색.cpp">
       <Filter>소스 파일\BFS</Filter>
     </ClCompile>
@@ -120,15 +123,6 @@
     <ClCompile Include="소스3.cpp">
       <Filter>소스 파일\BFS</Filter>
     </ClCompile>
-    <ClCompile Include="소스4.cpp">
-      <Filter>소스 파일\BFS</Filter>
-    </ClCompile>
-    <ClCompile Include="소스5.cpp">
-      <Filter>소스 파일\BFS</Filter>
-    </ClCompile>
-    <ClCompile Include="소스6.cpp">
-      <Filter>소스 파일\BFS</Filter>
-    </ClCompile>
     <ClCompile Include="연습5_1697_숨바꼭질.cpp">
       <Filter>소스 파일\BFS</Filter>
     </ClCompile>
@@ -137,6 +131,30 @@
     </ClCompile>
     <ClCompile Include="연습3_7576_토마토.cpp">
       <Filter>소스 파일\BFS</Filter>
+    </ClCompile>
+    <ClCompile Include="연습1_거듭제곱.cpp">
+      <Filter>소스 파일\재귀</Filter>
+    </ClCompile>
+    <ClCompile Include="연습3_Z.cpp">
+      <Filter>소스 파일\재귀</Filter>
+    </ClCompile>
+    <ClCompile Include="연습2_하노이탑.cpp">
+      <Filter>소스 파일\재귀</Filter>
+    </ClCompile>
+    <ClCompile Include="1780_종이의 개수.cpp">
+      <Filter>소스 파일\재귀</Filter>
+    </ClCompile>
+    <ClCompile Include="17478_재귀함수가뭔가요.cpp">
+      <Filter>소스 파일\재귀</Filter>
+    </ClCompile>
+    <ClCompile Include="소스1.cpp">
+      <Filter>소스 파일\백트래킹</Filter>
+    </ClCompile>
+    <ClCompile Include="연습1_N과 M.cpp">
+      <Filter>소스 파일\백트래킹</Filter>
+    </ClCompile>
+    <ClCompile Include="소스5.cpp">
+      <Filter>소스 파일\백트래킹</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
